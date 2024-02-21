@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<style>
+  table, th, td {
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+</style>    
+<h1>Список дней страдания</h1>
+
+    {% if overtimes_list %}
+    <table >
+      <tr>
+        <th>Дата</th>
+        <th>Переработка</th>
+      </tr>
+      {% for overtime in overtimes_list %}
+      <tr>
+       <td> {{ overtime.date }} </td>
+      
+       <td> {{overtime.overtime}} </td>
+      
+       <td><a href="delete/{{overtime.id}}">Удалить</a></td>
+      
+       <td><a href="edit/{{overtime.id}}">Изменить</a></td>
+      
+      </tr>
+      {% endfor %}
+      
+       
+      
+    </table>
+    {% else %}
+      <p>Выходит, что ты не работала.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %} 
+
+       
+
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label>Введите дату</label><br>
+        <input type="date" name="date" />
+    </p>
+    <p>
+        <label>Введите часы приема</label><br>
+        <input name="appointment_time" />
+    </p>
+    <p>
+        <label>Введите количество вызовов</label><br>
+        <input type="number" name="meetings" />
+    </p>
+    <p>
+        <label>Введите колдичество участков</label><br>
+        <input type="number" name="districts" />
+    </p>
+    
+    <input type="submit" value="Сохранить" >
+</form>
+
+{% endblock %}

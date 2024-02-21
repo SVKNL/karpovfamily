@@ -1,0 +1,59 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<style>
+  table, th, td {
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+</style>    
+<h1>Список препаратов</h1>
+<li><a href="{% url 'add_pharmacy' %}">Добавить препарат</a></li>
+    {% if pharmacy_list %}
+    
+    
+    
+    
+      {% for pharmacy in pharmacy_list %}
+      
+    {% if pharmacy.photo %}
+    <img src="{{pharmacy.photo.url|default_if_none:'#'}}" width='150' height='200'width='150' height='200'>
+    {% else %}
+    <p></p>
+    {% endif %}  
+    <table >
+        <tr>
+            <td> Name </td>
+      
+            <td> {{pharmacy.name}} </td>
+        </tr>
+        <tr>
+          <td> Comment </td>
+    
+          <td> {{pharmacy.comment}} </td>
+        </tr>
+        <tr>
+          <td> Group </td>
+  
+          <td> {{pharmacy.group}} </td>
+        </tr>
+        <tr>
+          <td><a href="delete/{{pharmacy.id}}">Удалить</a></td>
+      
+          <td><a href="edit/{{overtime.id}}">Изменить</a></td>
+        </tr>    
+        
+      </table>  
+       </p>
+      <p></p>
+      
+       {% endfor %}
+      
+       
+      
+   
+    {% else %}
+      <p>Добавьте препарат.</p>
+    {% endif %}
+{% endblock %}

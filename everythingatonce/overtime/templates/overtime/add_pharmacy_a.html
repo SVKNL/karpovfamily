@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %} 
+
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите название</label><br>
+            <input type="text" name="namePh" />
+        </p>
+        <p>
+            <label>Введите группу</label><br>
+            <input type="text" name="group" />
+        </p>
+        <p>
+            <label>Введите комментарий</label><br>
+            <input type="text" name="comment" />
+        </p>
+        
+        <input type="submit" value="Сохранить" >
+    </form>
+ 
+  
+ 
+
+   
+    
+
+{% endblock %}

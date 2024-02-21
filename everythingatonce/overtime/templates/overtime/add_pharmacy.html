@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %} 
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label>Введите название</label><br>
+        <input type="text" name="name" />
+    </p>
+    
+    
+    <input type="submit" value="Найти фото" >
+</form>
+    
+    {% if name %}
+    <img src='/media/images/000001.jpg' width='150' height='200'>
+    
+    <p><a href="{% url 'add_pharmacy_a' %}">Внести остальную информацию если подходит фото</a></p>
+    <p><a href="{% url 'add_pharmacy_m' %}">Внести остальную информацию если фото не подошло</a></p>
+ 
+  {% endif %}
+ 
+
+   
+    
+
+{% endblock %}
