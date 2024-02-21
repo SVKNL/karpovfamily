@@ -134,8 +134,7 @@ def add_pharmacy_m(request):
 def add_pharmacy(request):
     
     if request.method == 'POST':
-        if os.path.exists('/Users/admin/karpovfamily/everythingatonce/media/images/000001.jpg'):
-            os.remove('/Users/admin/karpovfamily/everythingatonce/media/images/000001.jpg')
+        
         name=request.POST.get('name')
         #user=request.user
         #user_id=user.id
