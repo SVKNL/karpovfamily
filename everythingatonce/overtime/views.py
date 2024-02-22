@@ -138,12 +138,12 @@ def add_pharmacy(request):
         name=request.POST.get('name')
         #user=request.user
         #user_id=user.id
-        get_image(name)
+        version=get_image(name)
         
         
         
         
-        return render(request, 'overtime/add_pharmacy.html', {'name':name})
+        return render(request, 'overtime/add_pharmacy.html', {'name':name, 'version':version})
         
        
         
