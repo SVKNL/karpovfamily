@@ -10,7 +10,24 @@
 </style>    
 <h1>Список препаратов</h1>
 <li><a href="{% url 'add_pharmacy' %}">Добавить препарат</a></li>
-    {% if pharmacy_list %}
+<form method='GET'>
+  <select name='filter'>
+    {% for pharmacy in pharmacy_list %}
+      <option value='{{ pharmacy.group }}' >{{ pharmacy.group }}</option>
+     
+    {% endfor %}
+    </select>  
+  <input type='submit' name='submit' value='выбрать группу' />  
+</form> 
+
+
+
+
+
+
+
+
+{% if pharmacy_list %}
     
     
     
@@ -49,7 +66,7 @@
       <p></p>
       
        {% endfor %}
-      
+       <li><a href="{% url 'pharmacy' %}">К полному списку</a></li>
        
       
    

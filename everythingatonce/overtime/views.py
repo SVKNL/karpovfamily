@@ -117,6 +117,15 @@ def delete(request, id):
 class PharmacyListView(generic.ListView):
     model=Pharmacy
     
+    def get_queryset(self):
+        group=self.request.GET.get('filter', '')
+        if not group:
+            return self.model.objects.all()
+        return self.model.objects.filter(group=group)
+    
+    
+    
+        
     
 @login_required   
 def add_pharmacy_m(request):
