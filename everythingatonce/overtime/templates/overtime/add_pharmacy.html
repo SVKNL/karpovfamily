@@ -13,13 +13,10 @@
 </form>
     
     {% if name %}
-    {% if version == 'png' %}
-    <img src='/media/images/000001.png' width='150' height='200'>
-    {% endif %}
-    
-    {% if version == 'jpg' %}
+   
+   
     <img src='/media/images/000001.jpg' width='150' height='200'>
-    {% endif %}
+   
     <p><a href="{% url 'add_pharmacy_a' %}">Внести остальную информацию если подходит фото</a></p>
     <p><a href="{% url 'add_pharmacy_m' %}">Внести остальную информацию если фото не подошло</a></p>
  
