@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %} 
+
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Вставь ссылку буся</label><br>
+            <input type="url" name="url" />
+        </p>
+        <p>
+            <label>Напиши комментарий</label><br>
+            <input type="text" name="comment" size=40 />
+        </p>
+       
+        <input type="submit" value="Сохранить" >
+    </form>
+ 
+  
+ 
+
+{% endblock %}

@@ -19,7 +19,7 @@ from django.core.files.base import ContentFile
 from io import BytesIO
 from uuid import uuid4
 from django.core.files import File
-# Create your views here.
+from datetime import date
 
 
 
@@ -173,7 +173,7 @@ def add_pharmacy_a(request):
        
              blob=BytesIO()
              im.save(blob, 'JPEG')
-             pharmacy.photo.save(f'{pharmacy.en_name}.jpg', File(blob), save=False)
+             pharmacy.photo.save(f'{pharmacy.id}.jpg', File(blob), save=False)
         
         
         
@@ -195,18 +195,26 @@ def delete_pharmacy(request, id):
 
 
 
-
-
-
-
-
-
-
 class EducationListView(generic.ListView):
     model=Education
     
+def add_education(request):
+    if request.method=="POST":
+        education=Education()
+        education.url=request.POST.get('url')
+        education.comment=request.POST.get('comment')
+        education.last_visit=date.today()
+        education.save()
+        return redirect('education')    
+    return render(request, 'overtime/add_education.html')
     
     
+
+
+
+
+
+
 class Usefull_infoListView(generic.ListView):
     model=Usefull_info
                 

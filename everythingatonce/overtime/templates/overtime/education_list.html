@@ -8,23 +8,27 @@
     border-collapse: collapse;
   }
 </style>    
-<h1>Список дней страдания</h1>
+<h1>Список образовательных ресурсов</h1>
 
-    {% if overtimes_list %}
+    {% if education_list %}
     <table >
       <tr>
-        <th>Дата</th>
-        <th>Переработка</th>
+        <th>Ссылка</th>
+        <th>Комментарий</th>
+        <th>Последний визит</th>
       </tr>
-      {% for overtime in overtimes_list %}
+      {% for education in education_list %}
       <tr>
-       <td> {{ overtime.date }} </td>
+       <td> {{ education.url|urlize }} </td>
       
-       <td> {{overtime.overtime}} </td>
+       <td> {{education.comment}} </td>
+       
+       <td> {{education.last_visit}} </td>
       
-       <td><a href="delete/{{overtime.id}}">Удалить</a></td>
+       
+       <td><a href="delete/{{education.id}}">Удалить</a></td>
       
-       <td><a href="edit/{{overtime.id}}">Изменить</a></td>
+       
       
       </tr>
       {% endfor %}
@@ -33,6 +37,6 @@
       
     </table>
     {% else %}
-      <p>Выходит, что ты не работала.</p>
+    <li><a href="{% url 'add_education' %}">Добавить ресурсы</a></li>
     {% endif %}
 {% endblock %}

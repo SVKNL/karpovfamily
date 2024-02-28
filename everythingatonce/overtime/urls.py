@@ -17,6 +17,10 @@ urlpatterns = [
     path('add_pharmacy/manual/', views.add_pharmacy_m, name='add_pharmacy_m'),
     path('add_pharmacy/auto/', views.add_pharmacy_a, name='add_pharmacy_a'),
     path("pharmacy/delete/<int:id>/", views.delete_pharmacy),
+   
+    path('add_education/', views.add_education, name='add_education'),
+   
+    #path('add_usefull_info/', views.add_usefull_info, name='add_usefull_info'),
     
     
     
