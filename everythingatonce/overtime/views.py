@@ -167,11 +167,13 @@ def add_pharmacy_a(request):
              pharmacy.name=request.POST.get('namePh')
              pharmacy.group=request.POST.get('group')
              pharmacy.comment=request.POST.get('comment')
+             pharmacy.en_name=request.POST.get('en_name')
+             
              im=Image.open(f'/Users/admin/karpovfamily/everythingatonce/media/images/000001.jpg')
        
              blob=BytesIO()
              im.save(blob, 'JPEG')
-             pharmacy.photo.save(f'{pharmacy.name}.jpg', File(blob), save=False)
+             pharmacy.photo.save(f'{pharmacy.en_name}.jpg', File(blob), save=False)
         
         
         

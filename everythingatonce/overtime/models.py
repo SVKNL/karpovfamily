@@ -19,7 +19,7 @@ class Pharmacy(models.Model):
     group=models.CharField(max_length=20)
     comment=models.CharField(max_length=200)
     user_id=models.ForeignKey(User, on_delete=models.CASCADE,null=True  ) 
-
+    en_name=models.CharField(max_length=20, null=True)
 class Education(models.Model):
     url=models.URLField()
     comment=models.CharField(max_length=200)    
